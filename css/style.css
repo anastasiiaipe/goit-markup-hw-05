@@ -492,7 +492,7 @@ button {
 .footer-subscribe {
 }
 
-.form-subs {
+.foter-form {
 	display: flex;
 	align-items: center;
 	gap: 24px;
@@ -503,10 +503,13 @@ button {
 	height: 40px;
 	background-color: transparent;
 	border-radius: 4px;
-	border: 1px solid var(--WHITE, #fff);
+	border: 1px solid #fff;
 	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
-	padding: 0 16px;
+	padding-left: 16px;
 	color: #ffffff;
+	font-size: 12px;
+	line-height: 1.5;
+	letter-spacing: 0.04em; 
 }
 
 .footer-input::placeholder {
@@ -518,6 +521,8 @@ button {
 }
 
 .footer-form-btn {
+	min-width: 165px;
+	height: 40px;
 	color: #fff;
 	text-align: center;
 	font-size: 16px;
@@ -528,10 +533,10 @@ button {
 	padding: 8px 24px;
 	border-radius: 4px;
 	background-color: #4d5ae5;
+	border: none;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: 16px;
 	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -539,9 +544,8 @@ button {
 .footer-form-btn:focus {
 	background-color: #404bbf;
 }
-.footer-form-btn svg {
-	width: 24px;
-	height: 24px;
+.footer-form-icon {
+	margin-left: 16px;
 	fill: #ffffff;
 }
 
@@ -557,18 +561,21 @@ button {
 	opacity: 0;
 	visibility: hidden;
 	pointer-events: none;
+	transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
 
 .modal {
 	width: 408px;
-	height: 584px;
+	min-height: 584px;
 	border-radius: 4px;
 	background-color: #fcfcfc;
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	padding: 72px 24px 24px 24px;
+	transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-btn {
@@ -584,20 +591,25 @@ button {
 	position: absolute;
 	top: 24px;
 	right: 24px;
-	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-btn:focus {
+.modal-btn:focus, .modal-btn:hover {
 	background-color: #404bbf;
+	border: none;
 }
 
-.modal-btn:focus .modal-btn-icon {
+.modal-btn:focus, .modal-btn:hover .modal-btn-icon {
 	fill: white;
 }
 
 .modal-btn-icon {
 	fill: #2e2f42;
 	transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-field {
+	margin-bottom: 8px;
 }
 
 .modal-title {
@@ -634,13 +646,12 @@ button {
 	height: 14px;
 	color: #8e8f99;
 	font-size: 12px;
-	line-height: 1.67;
+	line-height: 1.17;
 	letter-spacing: 0.04em;
 }
 
 .modal-input-wrap {
 	position: relative;
-	margin-bottom: 8px;
 }
 
 .modal-icon {
@@ -650,6 +661,10 @@ button {
 	top: 50%;
 	transform: translateY(-50%);
 	transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-field-text {
+	margin-bottom: 16px;
 }
 
 .modal-text {
@@ -662,6 +677,10 @@ button {
 	outline: transparent;
 	transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 	resize: none;
+	color: rgba(46, 47, 66, 0.4);
+	font-size: 12px;
+	line-height: 1.17;
+	letter-spacing: 0.04em;
 }
 
 .modal-text::placeholder {
@@ -684,7 +703,7 @@ button {
 	color: #8e8f99;
 	font-size: 12px;
 	font-weight: 400;
-	line-height: 1.67;
+	line-height: 1.17;
 	letter-spacing: 0.04em;
 	display: flex;
 	align-items: center;
@@ -696,7 +715,7 @@ button {
 }
 
 .check-text span {
-	display: flex;
+	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	width: 16px;
@@ -705,6 +724,7 @@ button {
 	border: 1px solid rgba(46, 47, 66, 0.4);
 	margin-right: 8px;
 	fill: transparent;
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .check-input:checked + .check-text span {
@@ -714,13 +734,14 @@ button {
 }
 
 .modal-form-btn {
+	display: block; 
 	color: #fff;
 	text-align: center;
 	font-size: 16px;
 	font-weight: 500;
 	line-height: 1.5;
 	letter-spacing: 0.04em;
-	width: 169px;
+	min-width: 169px;
 	padding: 16px 32px;
 	border: none;
 	border-radius: 4px;
