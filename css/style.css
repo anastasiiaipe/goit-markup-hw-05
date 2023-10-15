@@ -707,8 +707,6 @@ button {
 	font-weight: 400;
 	line-height: 1.17;
 	letter-spacing: 0.04em;
-	display: flex;
-	align-items: center;
 }
 
 .check-text a {
